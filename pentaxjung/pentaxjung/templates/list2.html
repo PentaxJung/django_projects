@@ -1,0 +1,23 @@
+<h1><strong>{{page_title}}</strong></h1>
+<p>안녕 여러분.</p><p>이 내용은 list.html 에 있는 거야.</p><p>
+<br>
+{% for entry in entries %}
+<div>
+<h3><a href="/blog/entry/{{entry.id}}"	href="/blog/entry/{{entry.id}}">[{{entry.id}}] {{entry.Title}}</a></h3>
+<h5>작성일:{{entry.created}}, 수정일:{{entry.updated}}</h5>
+
+{{entry.Content}}
+<li>카테고리: {{entry.Category.Title}}</li>
+<li>{% for tag in entry.Tags.all %}
+<span>태그: {{tag.Title}}</span>
+{% endfor %}</li>
+<div>
+</div>
+
+</div>
+<br>
+{% endfor %}
+{% for page_2 in page_list %}
+<h3><a href="/blog/page/{{page_2}}"	href="/blog/page/{{page_2}}">
+[{{page_2}}]</a></h3>
+{% endfor %}

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/media/css/style.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<h1></h1>
+
+	<div id="content">
+		{% for entry in entries %}
+
+		<div class="post_entry">
+			<h3 id="post_" class="post_title"><a href="/blog/entry/"></a></h3>
+
+			<p class="post_info">카테고리: [ ] / <a href="/blog/entry/"></a></p>
+
+			<div class="content_box"></div>
+
+			<ul class="post_meta">
+				<li>태그: {% for tag in entry.Tags.all %}
+				<span></span>
+				{% endfor %}
+				</li>
+				
+				<li>
+					<a href="/blog/get_comments/">댓글 ()</a>
+				</li>
+
+			</ul>
+		</div>
+		{% endfor %}
+	</div>
+
+	<div id="sidebar"></div>
+
+</body>
+
+</html>

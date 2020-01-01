@@ -1,0 +1,14 @@
+{% if comments|length %}
+<ul>
+{% for comment in comments %}
+	<li>{{comment.Name}}님이 {{comment.created}}에 남긴 댓글
+	<p>{{comment.Content}}</p></li>
+	{% include 'del_comment_form.html' %}
+
+{% endfor %}
+</ul>
+{% else %}
+<ul>
+댓글이 없습니다.
+</ul>
+{% endif %}

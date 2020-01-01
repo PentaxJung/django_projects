@@ -1,0 +1,48 @@
+<div>
+	<h3>[{{current_entry.id}}] {{current_entry.Title}}</h3>
+	
+	<ul>
+		<li>
+			최초 작성일: {{current_entry.created}}, 수정일: {{current_entry.updated}}
+		</li>
+		
+		<li>
+			카테고리: {{current_entry.Category.Title}}
+		</li>
+	
+		<li>
+			{% for tag in current_entry.Tags.all %}
+			<span>
+				태그: {{tag.Title}}
+			</span>
+			{% endfor %}
+		</li>
+		<br>{{current_entry.Content}}<br><br>
+		{% if comments|length %}
+		댓글 {{current_entry.Comments}}
+		{% endif %}
+	</ul>
+		<div>
+			{% include 'comments.html' %}
+			<ul>
+				{% include 'comment_form.html' %}
+			</ul>
+		</div>
+	<ul>
+		<li>
+			<a href="/blog">목록으로</a>
+		</li>
+
+		{% if next_entry %}
+		<li>
+			<a href="/blog/entry/{{next_entry.id}}">다음 글: {{next_entry.Title}}</a>
+		</li>
+		{% endif %}
+
+		{% if prev_entry %}
+		<li>
+			<a href="/blog/entry/{{prev_entry.id}}">이전 글: {{prev_entry.Title}}</a>
+		</li>
+		{% endif %}
+	</ul>
+</div>
